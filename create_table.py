@@ -1,7 +1,7 @@
 import json
 from log import logger
 
-def get_table_json():
+def  get_table_json():
     logger.info("function get_table_json is getting data from json file")
     file = open('./table.json', 'r')
     file_data = file.read()
