@@ -1,0 +1,53 @@
+[
+    {
+        "table_name": "Employee",
+        "columns": [
+            "id",
+            "name",
+            "email",
+            "joiningDate"
+        ]
+    },
+    {
+        "table_name": "Department",
+        "columns": [
+            "id",
+            "department_name",
+            "manager"
+        ]
+    },
+    {
+        "table_name": "Project",
+        "columns": [
+            "id",
+            "project_name",
+            "start_date",
+            "end_date",
+            "budget"
+        ]
+    },
+    {
+        "table_name": "Skill",
+        "columns": [
+            "id",
+            "skill_name"
+        ]
+    },
+    {
+        "table_name": "Task",
+        "columns": [
+            "id",
+            "task_name",
+            "task_description",
+            "deadline"
+        ]
+    },
+    {
+        "table_name": "Client",
+        "columns": [
+            "id",
+            "client_name",
+            "contact_email"
+        ]
+    }
+]
