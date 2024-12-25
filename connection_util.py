@@ -1,5 +1,6 @@
 import psycopg2 as ps
 from neo4j import GraphDatabase
+from py2neo import Graph
 from log import logger
 from dotenv import load_dotenv
 import os
@@ -17,8 +18,6 @@ def create_postgres_connection():
 
 
 def create_neo4j_connection():
-
-
     uri = "neo4j://localhost:7687" 
     username = "neo4j"  
     password = os.getenv('neo4j_password')
@@ -26,3 +25,12 @@ def create_neo4j_connection():
     driver = GraphDatabase.driver(uri, auth=(username, password))  
     logger.info("connection to neo4j is established")
     return driver
+
+
+def get_neo4j_graph():
+    uri = "neo4j://localhost:7687" 
+    username = "neo4j"  
+    password = os.getenv('neo4j_password')
+
+    graph = Graph(uri, auth=(username, password))
+    return graph
