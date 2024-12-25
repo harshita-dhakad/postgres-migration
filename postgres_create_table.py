@@ -25,7 +25,7 @@ def create_tables_from_json(tables, connection):
 
 
 def get_create_table_query(table_name, columns):
-    logger.info("function gte_create_table_query is writing query in postgres for creating a table")
+    logger.info("function get_create_table_query is writing query in postgres for creating a table")
     columns_str = ""
 
     for column in columns:

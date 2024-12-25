@@ -3,7 +3,7 @@ import pandas as pd
 
 def get_record_as_df(table_name, connection):
     cursor = connection.cursor()
-    cursor.execute(f"select * from {table_name} LIMIT 3")
+    cursor.execute(f"select * from {table_name}")
 
     table_rows = cursor.fetchall() # Executes the query and puts the query restult in table_rows
     columns = cursor.description # provides column data (Column1, Column2) 

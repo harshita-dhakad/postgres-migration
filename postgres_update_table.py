@@ -14,7 +14,7 @@ def update_table_record(table_name, column, value, condition_column, condition_v
         logger.info(f"Table '{table_name}' updated successfully.")
     except Exception as e:
         logger.info(f"Failed to update table '{table_name}': {e}")
-        connection.rollback()
+        connection.rollback() # Rollback changes if error occurs
     finally:
         cursor.close()
 

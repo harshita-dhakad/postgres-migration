@@ -1,7 +1,6 @@
 from log import logger
 
 def get_employee_insertion_query() -> str :
-    logger.info("function get_employee_insertion_query is inserting data in the table")
     employee_insertion_query = '''
         INSERT INTO employee (id, email, name, joiningDate) VALUES
         (1, 'john.doe@example.com', 'John Doe', '2023-01-15'),
@@ -25,12 +24,10 @@ def get_employee_insertion_query() -> str :
         (19, 'jackson.scott@example.com', 'Jackson Scott', '2024-07-21'),
         (20, 'harper.green@example.com', 'Harper Green', '2024-08-15');
         '''
-    logger.info("data is inserted in the employee table")
     return employee_insertion_query
 
 
 def get_department_data_insertion_query() -> str:
-    logger.info("function get_department_data_insertion_query is inserting data in department table")
     department_data_insertion_query = '''
         INSERT INTO department (id, department_name, manager)
         VALUES
@@ -50,12 +47,10 @@ def get_department_data_insertion_query() -> str:
         (19, 'Human Resources', 1),
         (20, 'Finance', 2);
     '''
-    logger.info("data is inserted in department table")
     return department_data_insertion_query
 
 
 def get_projects_data_insertion_query() -> str :
-    logger.info("function get_project_data_insertion_query is inserting data in project table")
     projects_data_insertion_query = '''
         INSERT INTO project (id,project_name, start_date, end_date, budget) 
         VALUES
@@ -89,12 +84,10 @@ def get_projects_data_insertion_query() -> str :
         (28,'Project Iota', '2024-11-01', '2025-06-30', 80000.00),
         (29,'Project Kappa', '2024-12-01', '2025-09-30', 130000.00);
     '''
-    logger.info("data is entered in project table")
     return projects_data_insertion_query
 
 
 def get_skills_data_insertion_query() -> str :
-    logger.info("function get_skills_data_insertion_query is inserting data in skills table")
     skills_data_insertion_query = '''
 
         INSERT INTO skill (id, skill_name)
@@ -112,12 +105,10 @@ def get_skills_data_insertion_query() -> str :
         (11, 'Development'), (11, 'Sales'), (11, 'Marketing'), (11, 'Communication'), (11, 'Data Analytics'),
         (12, 'Development'), (12, 'Sales'), (12, 'Marketing'), (12, 'Data'), (12, 'Data Analytics');
         '''
-    logger.info("data is inserted in skill table")
     return skills_data_insertion_query
 
 
 def get_tasks_data_insertion_query() -> str :
-    logger.info("function get_tasks_data_insertion_query is inserting data in tasks table")
     tasks_data_insertion_query = '''
         INSERT INTO task (id,task_name, task_description, deadline)
         VALUES
@@ -133,12 +124,10 @@ def get_tasks_data_insertion_query() -> str :
         (11,'Client Communication', 'Communicate with the client regarding project progress and issues', '2024-12-08');
 
     '''
-    logger.info("data is inserted in task table")
     return tasks_data_insertion_query
 
 
 def get_clients_data_insertion_query() -> str :
-    logger.info("function get_client_data_insertion_query is inserting data in clients table")
     client_table_data_query = '''
         INSERT INTO client (id, client_name, contact_email)
         VALUES
@@ -148,12 +137,10 @@ def get_clients_data_insertion_query() -> str :
         (4, 'Alpha Solutions', 'contact@alphasolutions.com'),
         (5, 'Beta Industries', 'support@betaindustries.com');
         '''
-    logger.info("data in client table is inserted")
     return client_table_data_query
 
 
 def insert_data_in_postgres(connection):
-    logger.info("function insert_data_in_postgres is inserting data in postgres")
     employee_query = get_employee_insertion_query()
     department_query = get_department_data_insertion_query()
     projects_query = get_projects_data_insertion_query()
@@ -163,11 +150,17 @@ def insert_data_in_postgres(connection):
 
     cursor = connection.cursor()
     cursor.execute(employee_query)
+    logger.info(f'Executed insert - {employee_query}')
     cursor.execute(department_query)
+    logger.info(f'Executed insert - {department_query}')
     cursor.execute(projects_query)
+    logger.info(f'Executed insert - {projects_query}')
     cursor.execute(skills_query)
+    logger.info(f'Executed insert - {skills_query}')
     cursor.execute(tasks_query)
+    logger.info(f'Executed insert - {tasks_query}')
     cursor.execute(clients_query)
+    logger.info(f'Executed insert - {clients_query}')
     connection.commit()
     logger.info("data inserted in postgres")
 
