@@ -14,3 +14,4 @@ def insert_data_to_neo4j(table_name:str):
     for record in record_dict:
         node = Node(label, **record)
         graph.merge(node, label, 'id')
+
